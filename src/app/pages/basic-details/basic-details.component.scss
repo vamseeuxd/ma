@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  overflow-x: auto;
+  nb-card {
+    min-width: 458px !important;
+  }
+  /deep/
+  .step:first-child {
+    margin-left: 25px !important;
+  }
+  /deep/
+  .step:last-child {
+    margin-right: 25px !important;
+  }
+
+}

@@ -1,0 +1,43 @@
+// themes - our custom or/and out of the box themes
+@import 'themes';
+// framework component themes (styles tied to theme variables)
+@import '~@nebular/theme/styles/globals';
+@import '~@nebular/auth/styles/all';
+// global app font size
+@import './font-size';
+// loading progress bar theme
+@import './pace.theme';
+@import './bootstrap-rtl';
+
+// install the framework and custom global styles
+@include nb-install() {
+
+  // framework global styles
+  @include nb-theme-global();
+  @include nb-auth-global();
+
+  // loading progress bar
+  @include ngx-pace-theme();
+
+  // fixed in rc.9 and can be removed after upgrade
+  .custom-control .custom-control-indicator {
+    border-radius: 50%; // TODO: quickfix for https://github.com/akveo/nebular/issues/275
+  }
+  @include bootstrap-rtl();
+}
+
+;
+.menu-item .menu-icon {
+  font-size: 1.5rem !important;
+}
+
+.menu-item:first-child .menu-title::after {
+  content: '' !important;
+  color: #ffffff;
+  margin-left: 1rem;
+  background: #ff6b83;
+  padding: 0 0.5rem;
+  border-radius: 0.17rem;
+  font-size: 0.875rem;
+  display: none;
+}
