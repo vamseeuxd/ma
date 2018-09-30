@@ -1,0 +1,57 @@
+<form #basicInformationForm="ngForm">
+  <div class="row">
+    <!--SOD (Start of the Day)-->
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <label>SOD (Start of the Day) <span class="text-danger font-w-bold">*</span></label>
+        <input name="startOfTheDay" [(ngModel)]="data['startOfTheDay']" required type="time" class="form-control" placeholder="SOD (Start of the Day)">
+      </div>
+    </div>
+
+    <!--EOD (End of the Day)-->
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <label>EOD (End of the Day) <span class="text-danger font-w-bold">*</span></label>
+        <input name="endOfTheDay" [(ngModel)]="data['endOfTheDay']" required type="time" class="form-control" placeholder="EOD (End of the Day)">
+      </div>
+    </div>
+
+    <!--Currency Icon-->
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <label>Currency Icon</label>
+        <select name="currencyIcon" [(ngModel)]="data['currencyIcon']" class="form-control" placeholder="Currency Icon">
+          <option value="inr">(&#x20B9;) INR</option>
+          <option value="usd">(&#36;) USD</option>
+          <option value="euro">(&euro;) EUR</option>
+        </select>
+      </div>
+    </div>
+
+    <!--Print Computer Generated Copy-->
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <label>Print Computer Generated Copy</label>
+        <br>
+        <label class="mr-3 mt-3"><input style="transform: scale(1.5,1.5);" type="radio" name="printComputerGeneratedCopy" value="enabled" [(ngModel)]="data['printComputerGeneratedCopy']"> &nbsp; Enabled</label>
+        <label class="mr-3 mt-3"><input style="transform: scale(1.5,1.5);" type="radio" name="printComputerGeneratedCopy" value="disabled" [(ngModel)]="data['printComputerGeneratedCopy']"> &nbsp; Disabled</label>
+      </div>
+    </div>
+
+    <!--Time Zone-->
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <label>Time Zone</label>
+        <select name="timeZone" [(ngModel)]="data['timeZone']" class="form-control" placeholder="Time Zone">
+          <option value="ist">Indian Standard Time (UTC+05:30)</option>
+        </select>
+      </div>
+    </div>
+
+    <!--Button-->
+    <div class="col-12 text-right">
+      <button (click)="onSubmitButtonClick(basicInformationForm)" nbStepperNext [disabled]="basicInformationForm.invalid" type="button" class="btn btn-primary">Save & Continue</button>
+      <p>Provide all required information  <span class="text-danger font-w-bold">*</span></p>
+    </div>
+  </div>
+</form>
