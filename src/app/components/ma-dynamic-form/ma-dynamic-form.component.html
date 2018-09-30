@@ -1,0 +1,71 @@
+<form name="form" (ngSubmit)="onSubmit(basicInformationForm)" #basicInformationForm="ngForm" novalidate>
+  <div class="form-row">
+
+    <div *ngFor="let component of formControllers;" [class]="component.groupClass">
+
+      <label>
+        {{component.controllerLabel}}
+        <span class="text-danger" *ngIf="component.required">*</span>
+      </label>
+
+      <input [type]="component.controllerType"
+             [class]="component.getComponentClass(basicInformationForm,component, model)"
+             [name]="component.controllerName"
+             [placeholder]="component.controllerPlaceholder"
+             [(ngModel)]="model[component.controllerModel]"
+             [minlength]="component.minLength"
+             [maxlength]="component.maxLength"
+             [min]="component.min"
+             [max]="component.max"
+             [pattern]="component.pattern"
+             *ngIf="inputTypeOne.indexOf(component.controllerType)>=0"
+             (change)="component.change(basicInformationForm,component)"
+             [required]="component.required" />
+
+      <span *ngIf="component.controllerType=='checkbox'">
+        <div class="form-check" *ngFor="let option of component.data">
+          <input type="checkbox"
+                 [name]="component.controllerName"
+                 class="form-check-input"
+                 (change)="onCheckBoxChange(model, component.controllerModel, option.id)"
+                 [checked]="model[component.controllerModel]==option.id"
+                 [id]="option.id">
+          <label class="form-check-label" [for]="option.id">{{option.label}}</label>
+        </div>
+      </span>
+
+      <select *ngIf="component.controllerType=='select'"
+              [name]="component.controllerName"
+              [(ngModel)]="model[component.controllerModel]"
+              [required]="component.required"
+              (change)="component.change(basicInformationForm, component, model)"
+              (submit)="component.getComponentClass(basicInformationForm,component)"
+              [class]="component.getComponentClass(basicInformationForm,component)">
+        <option [value]="option.id" *ngFor="let option of component.data">{{option.label}}</option>
+      </select>
+
+      <div *ngIf="basicInformationForm.submitted && basicInformationForm['controls'][component.controllerName].invalid" class="invalid-feedback">
+        <div *ngIf="basicInformationForm['controls'][component.controllerName]?.errors?.required">  {{component['requiredErrorMessage']}}   </div>
+        <div *ngIf="basicInformationForm['controls'][component.controllerName]?.errors?.min">       {{component['minErrorMessage']}}        </div>
+        <div *ngIf="basicInformationForm['controls'][component.controllerName]?.errors?.max">       {{component['maxErrorMessage']}}        </div>
+        <div *ngIf="basicInformationForm['controls'][component.controllerName]?.errors?.email">     {{component['emailErrorMessage']}}      </div>
+        <div *ngIf="basicInformationForm['controls'][component.controllerName]?.errors?.minlength"> {{component['minLengthErrorMessage']}}  </div>
+        <div *ngIf="basicInformationForm['controls'][component.controllerName]?.errors?.maxlength"> {{component['maxLengthErrorMessage']}}  </div>
+        <div *ngIf="basicInformationForm['controls'][component.controllerName]?.errors?.pattern">   {{component['patternErrorMessage']}}    </div>
+      </div>
+
+      <div *ngIf="component.isCustomMessage" [class]="component.customMessageClass">
+        <div>  {{component['customMessage']}}   </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <button class="btn btn-primary">Register</button>
+    </div>
+
+  </div>
+</form>
+<div>
+  <pre>{{model | json}}</pre>
+</div>

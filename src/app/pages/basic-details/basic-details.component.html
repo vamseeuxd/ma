@@ -1,64 +1,19 @@
 <nb-card>
   <nb-card-body>
-    <nb-stepper #stepper>
+    <nb-stepper #stepper [selectedIndex]="3">
       <nb-step label="Basic Information">
-
-        <form name="form" (ngSubmit)="basicInformationForm.form.valid && onSubmit()" #basicInformationForm="ngForm" novalidate>
-          <div class="form-row">
-            <div class="col-md-4 mb-3">
-              <label>First Name</label>
-              <input type="text"
-                     class="form-control"
-                     name="firstName"
-                     [(ngModel)]="model['firstName']"
-                     #firstName="ngModel"
-                     [ngClass]="{ 'is-invalid': basicInformationForm.submitted && firstName.invalid }"
-                     [required]="true" />
-              <div *ngIf="basicInformationForm.submitted && firstName.invalid" class="invalid-feedback">
-                <div *ngIf="firstName?.errors?.required">First Name is required</div>
-                <div *ngIf="firstName?.errors?.min">First Name is required</div>
-                <div *ngIf="firstName?.errors?.max">First Name is required</div>
-                <div *ngIf="firstName?.errors?.email">First Name is required</div>
-                <div *ngIf="firstName?.errors?.minLength">First Name is required</div>
-                <div *ngIf="firstName?.errors?.maxLength">First Name is required</div>
-                <div *ngIf="firstName?.errors?.pattern">First Name is required</div>
-              </div>
-            </div>
-
-
-            <div class="col-md-4 mb-3">
-              <label>Last Name</label>
-              <input type="text" class="form-control" name="lastName" [(ngModel)]="model['lastName']" #lastName="ngModel" [ngClass]="{ 'is-invalid': basicInformationForm.submitted && lastName.invalid }" required />
-              <div *ngIf="basicInformationForm.submitted && lastName.invalid" class="invalid-feedback">
-                <div *ngIf="lastName?.errors?.required">Last Name is required</div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-3">
-              <label>Email</label>
-              <input type="text" class="form-control" name="email" [(ngModel)]="model['email']" #email="ngModel" [ngClass]="{ 'is-invalid': basicInformationForm.submitted && email.invalid }" required email />
-              <div *ngIf="basicInformationForm.submitted && email.invalid" class="invalid-feedback">
-                <div *ngIf="email?.errors?.required">Email is required</div>
-                <div *ngIf="email?.errors?.email">Email must be a valid email address</div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-3">
-              <label>Password</label>
-              <input type="password" class="form-control" name="password" [(ngModel)]="model['password']" #password="ngModel" [ngClass]="{ 'is-invalid': basicInformationForm.submitted && password.invalid }" required minlength="6" />
-              <div *ngIf="basicInformationForm.submitted && password.invalid" class="invalid-feedback">
-                <div *ngIf="password?.errors?.required">Password is required</div>
-                <div *ngIf="password?.errors?.minlength">Password must be at least 6 characters</div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-3">
-              <button class="btn btn-primary">Register</button>
-            </div>
-          </div>
-        </form>
-
+        <ngx-basic-information></ngx-basic-information>
       </nb-step>
-      <nb-step label="Logo and Social"></nb-step>
-      <nb-step label="Contact Information"></nb-step>
-      <nb-step label="Global Settings"></nb-step>
+      <nb-step label="Logo and Social">
+        <ngx-logo-and-social></ngx-logo-and-social>
+      </nb-step>
+      <nb-step label="Contact Information">
+        <ngx-contact-information></ngx-contact-information>
+      </nb-step>
+      <nb-step label="Global Settings">
+        <ngx-global-settings></ngx-global-settings>
+      </nb-step>
     </nb-stepper>
+
   </nb-card-body>
 </nb-card>
