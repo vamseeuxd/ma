@@ -1,0 +1,155 @@
+<form #basicInformationForm="ngForm">
+  <div class="row">
+    <!--Country-->
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <label>Country</label>
+        <input name="country" [(ngModel)]="data['country']" type="text" class="form-control" placeholder="Country">
+      </div>
+    </div>
+
+    <!--State-->
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <label>State</label>
+        <input type="text" name="state" [(ngModel)]="data['state']" class="form-control" placeholder="State">
+      </div>
+    </div>
+
+    <!--District-->
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <label>District</label>
+        <input type="text" name="district" [(ngModel)]="data['district']" class="form-control" placeholder="District">
+      </div>
+    </div>
+
+    <!--City-->
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <label>City</label>
+        <input type="text" class="form-control" name="city" [(ngModel)]="data['city']" placeholder="City">
+      </div>
+    </div>
+
+    <!--Address-->
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <label>Address</label>
+        <input type="text" class="form-control" name="address" [(ngModel)]="data['address']" placeholder="Address">
+      </div>
+    </div>
+
+    <!--Pin-->
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <label>Pin</label>
+        <input type="text"
+               #Pin="ngModel"
+               class="form-control"
+               name="pin"
+               pattern="^\d{6}$"
+               mask="000 000"
+               [showMaskTyped] = "true"
+               [(ngModel)]="data['pin']"
+               placeholder="Pin">
+        <small [class]="Pin.valid?'text-muted':'text-muted text-danger'">6 digits Alternate Pin Number.</small>
+      </div>
+    </div>
+
+    <!--Email-->
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <label>Email<span class="text-danger font-w-bold">*</span></label>
+        <input type="email"
+               email
+               required
+               name="email"
+               [(ngModel)]="data['email']"
+               class="form-control"
+               placeholder="Email">
+      </div>
+    </div>
+
+    <!--Mobile-->
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <label>Mobile <span class="text-danger font-w-bold">*</span></label>
+        <input type="text"
+               required
+               name="mobile"
+               #mobile="ngModel"
+               pattern="^((\\+91-?)|0)?[0-9]{10}$"
+               [(ngModel)]="data['mobile']"
+               class="form-control"
+               mask=" 000 000 0000"
+               prefix="+91"
+               [showMaskTyped] = "true"
+               placeholder="Mobile">
+        <small [class]="mobile.valid?'text-muted':'text-muted text-danger'">10 digits Mobile Number.</small>
+      </div>
+    </div>
+
+    <!--Alternate Mobile-->
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <label>Alternate Mobile</label>
+        <input type="text"
+               pattern="^((\\+91-?)|0)?[0-9]{10}$"
+               name="alternateMobile"
+               #alternateMobile="ngModel"
+               [(ngModel)]="data['alternateMobile']"
+               class="form-control"
+               mask=" 000 000 0000"
+               prefix="+91"
+               [showMaskTyped] = "true"
+               placeholder="Alternate Mobile">
+        <small [class]="alternateMobile.valid?'text-muted':'text-muted text-danger'">10 digits Alternate Mobile Number.</small>
+      </div>
+    </div>
+
+    <!--Landline-->
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <label>Landline</label>
+        <input type="text"
+               name="landLine"
+               #landLine="ngModel"
+               pattern="^[0-9]{11}$"
+               [(ngModel)]="data['landLine']"
+               class="form-control"
+               mask="000 000 00000"
+               [showMaskTyped] = "true"
+               placeholder="Landline">
+        <small [class]="landLine.valid?'text-muted':'text-muted text-danger'">11 digits Landline Number.</small>
+      </div>
+    </div>
+
+    <!--Fax-->
+    <div class="col-xs-12 col-sm-6">
+      <div class="form-group">
+        <label>Fax</label>
+        <input type="text"
+               name="fax"
+               #fax="ngModel"
+               pattern="^[0-9]{11}$"
+               [(ngModel)]="data['fax']"
+               class="form-control"
+               mask="000 000 00000"
+               [showMaskTyped] = "true"
+               placeholder="Fax">
+        <small [class]="fax.valid?'text-muted':'text-muted text-danger'">11 digits Fax Number.</small>
+      </div>
+    </div>
+
+    <!--Button-->
+    <div class="col-12 text-right">
+      <button (click)="onSubmitButtonClick(basicInformationForm,fax)"
+              nbStepperNext
+              [disabled]="basicInformationForm.invalid"
+              type="button"
+              class="btn btn-primary">Save & Continue</button>
+      <p class="text-danger">Provide valid & required<span>*</span> information</p>
+    </div>
+  </div>
+</form>
