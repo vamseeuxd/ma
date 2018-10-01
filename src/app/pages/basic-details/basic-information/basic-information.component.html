@@ -1,3 +1,8 @@
+<div style="position: fixed;width: 100%;height: 100%;left: 0px;top: 0px;z-index: 10000;"
+     *ngIf="showBusyIndicator"
+     [nbSpinner]="true"
+     nbSpinnerMessage="Saving Basic Information"
+     nbSpinnerStatus="primary"></div>
 <form #basicInformationForm="ngForm">
   <div class="row">
     <!--School Name-->
@@ -52,7 +57,7 @@
     <div class="col-xs-12 col-sm-6">
       <div class="form-group">
         <label>Date of Establishment <span class="text-danger font-w-bold">*</span></label>
-        <input required type="date" name="dateOfEstablishment" [(ngModel)]="data['dateOfEstablishment']" min="2017-01-01" max="2018-09-29" class="form-control" placeholder="Date of Establishment">
+        <input required type="date" name="dateOfEstablishment" [(ngModel)]="data['dateOfEstablishment']" class="form-control" placeholder="Date of Establishment">
       </div>
     </div>
 
@@ -66,7 +71,10 @@
 
     <!--Button-->
     <div class="col-12 text-right">
-      <button (click)="onSubmitButtonClick(basicInformationForm)" nbStepperNext [disabled]="basicInformationForm.invalid" type="button" class="btn btn-primary">Save & Continue</button>
+      <button (click)="onSubmitButtonClick(basicInformationForm)"
+              [disabled]="basicInformationForm.invalid"
+              type="button"
+              class="btn btn-primary">Save</button>
       <p>Provide all required information  <span class="text-danger font-w-bold">*</span></p>
     </div>
   </div>

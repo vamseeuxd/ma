@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {AngularFireDatabase, AngularFireObject} from '@angular/fire/database';
 
 @Component({
   selector: 'ngx-basic-information',
@@ -8,13 +9,25 @@ import {Component, OnInit} from '@angular/core';
 export class BasicInformationComponent implements OnInit {
 
   data = {};
+  showBusyIndicator = false;
+  private basicInformationTable: AngularFireObject<any>;
 
-  constructor() {
+  constructor(private db: AngularFireDatabase) {
+    this.basicInformationTable = this.db.object('basicInformation');
+    this.basicInformationTable.valueChanges().subscribe(success => {
+      this.data = success;
+    }, error => {
+      // console.log('error', error);
+    });
   }
 
   ngOnInit() {
   }
 
   onSubmitButtonClick(basicInformationForm: any) {
+    this.showBusyIndicator = true;
+    this.basicInformationTable.set(this.data).then(result => {
+      this.showBusyIndicator = false;
+    });
   }
 }
