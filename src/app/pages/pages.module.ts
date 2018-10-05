@@ -9,7 +9,10 @@ import {BasicInformationComponent} from './basic-details/basic-information/basic
 import {LogoAndSocialComponent} from './basic-details/logo-and-social/logo-and-social.component';
 import {ContactInformationComponent} from './basic-details/contact-information/contact-information.component';
 import {NgxMaskModule} from 'ngx-mask';
-import { GlobalSettingsComponent } from './basic-details/global-settings/global-settings.component';
+import {GlobalSettingsComponent} from './basic-details/global-settings/global-settings.component';
+import {NbSpinnerModule} from '@nebular/theme';
+import {ImageCropperModule} from 'ngx-image-cropper';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -22,6 +25,9 @@ const PAGES_COMPONENTS = [
     PagesRoutingModule,
     NgxMaskModule.forRoot(),
     ThemeModule,
+    NbSpinnerModule,
+    ImageCropperModule,
+    NgbModule,
   ],
   declarations: [
     ...PAGES_COMPONENTS,
