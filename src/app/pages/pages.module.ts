@@ -10,6 +10,7 @@ import {LogoAndSocialComponent} from './basic-details/logo-and-social/logo-and-s
 import {ContactInformationComponent} from './basic-details/contact-information/contact-information.component';
 import {NgxMaskModule} from 'ngx-mask';
 import { GlobalSettingsComponent } from './basic-details/global-settings/global-settings.component';
+import {NbSpinnerModule} from '@nebular/theme';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -22,6 +23,7 @@ const PAGES_COMPONENTS = [
     PagesRoutingModule,
     NgxMaskModule.forRoot(),
     ThemeModule,
+    NbSpinnerModule,
   ],
   declarations: [
     ...PAGES_COMPONENTS,
