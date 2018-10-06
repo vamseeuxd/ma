@@ -32,6 +32,7 @@ export class LogoAndSocialComponent implements OnInit {
               private db: AngularFireDatabase,
               private modalService: NgbModal) {
     this.showBusyIndicator = true;
+    this.isLogoResetButton = false;
     this.logoAndSocialTable = this.db.object('logoAndSocial');
     this.logoAndSocialTable.valueChanges().subscribe(success => {
       if (success) {
@@ -68,6 +69,7 @@ export class LogoAndSocialComponent implements OnInit {
     };
     this.logoAndSocialTable.set(data).then(result => {
       this.showBusyIndicator = false;
+      this.isLogoResetButton = false;
     });
   }
 
