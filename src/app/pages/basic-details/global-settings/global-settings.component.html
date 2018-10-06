@@ -50,7 +50,10 @@
 
     <!--Button-->
     <div class="col-12 text-right">
-      <button (click)="onSubmitButtonClick(basicInformationForm)" nbStepperNext [disabled]="basicInformationForm.invalid" type="button" class="btn btn-primary">Save & Continue</button>
+      <button (click)="onSubmitButtonClick(basicInformationForm)"
+              [disabled]="basicInformationForm.invalid"
+              type="button"
+              class="btn btn-primary">Save & Continue</button>
       <p>Provide all required information  <span class="text-danger font-w-bold">*</span></p>
     </div>
   </div>

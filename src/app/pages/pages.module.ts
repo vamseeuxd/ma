@@ -10,7 +10,7 @@ import {LogoAndSocialComponent} from './basic-details/logo-and-social/logo-and-s
 import {ContactInformationComponent} from './basic-details/contact-information/contact-information.component';
 import {NgxMaskModule} from 'ngx-mask';
 import {GlobalSettingsComponent} from './basic-details/global-settings/global-settings.component';
-import {NbSpinnerModule} from '@nebular/theme';
+import {NbSpinnerModule, NbTabsetModule} from '@nebular/theme';
 import {ImageCropperModule} from 'ngx-image-cropper';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -28,6 +28,7 @@ const PAGES_COMPONENTS = [
     NbSpinnerModule,
     ImageCropperModule,
     NgbModule,
+    NbTabsetModule,
   ],
   declarations: [
     ...PAGES_COMPONENTS,

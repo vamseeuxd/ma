@@ -1,19 +1,18 @@
 <nb-card>
   <nb-card-body>
-    <nb-stepper #stepper [selectedIndex]="2">
-      <nb-step label="Basic Information">
+    <nb-tabset>
+      <nb-tab tabTitle="Basic Information">
         <ngx-basic-information></ngx-basic-information>
-      </nb-step>
-      <nb-step label="Logo and Social">
+      </nb-tab>
+      <nb-tab tabTitle="Logo and Social">
         <ngx-logo-and-social></ngx-logo-and-social>
-      </nb-step>
-      <nb-step label="Contact Information">
+      </nb-tab>
+      <nb-tab tabTitle="Contact Information">
         <ngx-contact-information></ngx-contact-information>
-      </nb-step>
-      <nb-step label="Global Settings">
+      </nb-tab>
+      <nb-tab tabTitle="Global Settings">
         <ngx-global-settings></ngx-global-settings>
-      </nb-step>
-    </nb-stepper>
-
+      </nb-tab>
+    </nb-tabset>
   </nb-card-body>
 </nb-card>

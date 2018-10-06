@@ -16,6 +16,7 @@
   ],
   "scripts": {
     "ng": "ng",
+    "firebase_deploy": "firebase deploy",
     "conventional-changelog": "conventional-changelog",
     "start": "ng serve --o",
     "build": "ng build",
