@@ -13,10 +13,13 @@ export class BasicInformationComponent implements OnInit {
   private basicInformationTable: AngularFireObject<any>;
 
   constructor(private db: AngularFireDatabase) {
+    this.showBusyIndicator = true;
     this.basicInformationTable = this.db.object('basicInformation');
     this.basicInformationTable.valueChanges().subscribe(success => {
       this.data = success;
+      this.showBusyIndicator = false;
     }, error => {
+      this.showBusyIndicator = false;
       // console.log('error', error);
     });
   }

@@ -12,6 +12,7 @@ export class ContactInformationComponent implements OnInit {
   private contactInformationTable: AngularFireObject<any>;
 
   constructor(private db: AngularFireDatabase) {
+    this.showBusyIndicator = true;
     this.contactInformationTable = this.db.object('contactInformation');
     this.contactInformationTable.valueChanges().subscribe(success => {
       if (success) {
