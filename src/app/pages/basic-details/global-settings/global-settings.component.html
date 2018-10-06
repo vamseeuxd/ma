@@ -1,3 +1,9 @@
+<div style="position: fixed;width: 100%;height: 100%;left: 0px;top: 0px;z-index: 10000;"
+     *ngIf="showBusyIndicator"
+     [nbSpinner]="true"
+     nbSpinnerMessage="Updating Global Settings Information"
+     nbSpinnerStatus="primary"></div>
+
 <form #basicInformationForm="ngForm">
   <div class="row">
     <!--SOD (Start of the Day)-->
@@ -21,9 +27,7 @@
       <div class="form-group">
         <label>Currency Icon</label>
         <select name="currencyIcon" [(ngModel)]="data['currencyIcon']" class="form-control" placeholder="Currency Icon">
-          <option value="inr">(&#x20B9;) INR</option>
-          <option value="usd">(&#36;) USD</option>
-          <option value="euro">(&euro;) EUR</option>
+          <option *ngFor="let option of currencyOptions" [value]="option.id" [innerHTML]="option.display"></option>
         </select>
       </div>
     </div>
@@ -43,7 +47,7 @@
       <div class="form-group">
         <label>Time Zone</label>
         <select name="timeZone" [(ngModel)]="data['timeZone']" class="form-control" placeholder="Time Zone">
-          <option value="ist">Indian Standard Time (UTC+05:30)</option>
+          <option *ngFor="let option of timeZoneOptions" [value]="option.id" [innerHTML]="option.display+' - '+option.offset">Indian Standard Time (UTC+05:30)</option>
         </select>
       </div>
     </div>
@@ -53,7 +57,7 @@
       <button (click)="onSubmitButtonClick(basicInformationForm)"
               [disabled]="basicInformationForm.invalid"
               type="button"
-              class="btn btn-primary">Save & Continue</button>
+              class="btn btn-primary">Save</button>
       <p>Provide all required information  <span class="text-danger font-w-bold">*</span></p>
     </div>
   </div>
