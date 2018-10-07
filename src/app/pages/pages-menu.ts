@@ -17,6 +17,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
       {
         'title': ' Session',
+        'link': '/pages/session',
       },
       {
         'title': ' Class & Section',

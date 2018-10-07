@@ -2,6 +2,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {PagesComponent} from './pages.component';
 import {BasicDetailsComponent} from './basic-details/basic-details.component';
+import {SessionComponent} from './session/session.component';
 
 const routes: Routes = [{
   path: '',
@@ -14,6 +15,10 @@ const routes: Routes = [{
     {
       path: 'basic-details',
       component: BasicDetailsComponent,
+    },
+    {
+      path: 'session',
+      component: SessionComponent,
     },
     {
       path: '',

@@ -13,6 +13,7 @@ import {GlobalSettingsComponent} from './basic-details/global-settings/global-se
 import {NbSpinnerModule, NbTabsetModule} from '@nebular/theme';
 import {ImageCropperModule} from 'ngx-image-cropper';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { SessionComponent } from './session/session.component';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -36,6 +37,7 @@ const PAGES_COMPONENTS = [
     LogoAndSocialComponent,
     ContactInformationComponent,
     GlobalSettingsComponent,
+    SessionComponent,
   ],
 })
 export class PagesModule {
