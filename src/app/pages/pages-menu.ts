@@ -150,6 +150,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         children: [
           {
             'title': 'Transport Master Entry',
+            'link': 'transport-master-entry',
           },
           {
             'title': 'Vehicle',
