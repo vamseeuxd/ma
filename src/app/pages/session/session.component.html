@@ -1,3 +1,86 @@
-<p>
-  session works!
-</p>
+<div style="position: fixed;width: 100%;height: 100%;left: 0px;top: 0px;z-index: 10000;"
+     *ngIf="showBusyIndicator"
+     [nbSpinner]="true"
+     nbSpinnerMessage="Updating Sessions Information"
+     nbSpinnerStatus="primary"></div>
+
+<nb-card>
+  <nb-card-header>
+    <h4>Session</h4>
+  </nb-card-header>
+  <nb-card-body>
+    <form class="row" #sessionForm="ngForm">
+
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+          <label>Session Name <span class="text-danger font-w-bold">*</span></label>
+          <input name="sessionName"
+                 [(ngModel)]="data['sessionName']"
+                 required
+                 type="text"
+                 class="form-control"
+                 placeholder="Session Name">
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+          <label>Start Date <span class="text-danger font-w-bold">*</span></label>
+          <input name="startDate"
+                 [(ngModel)]="data['startDate']"
+                 required
+                 type="date"
+                 class="form-control"
+                 placeholder="Start Date">
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+          <label>End Date <span class="text-danger font-w-bold">*</span></label>
+          <input name="endDate"
+                 [(ngModel)]="data['endDate']"
+                 required
+                 type="date"
+                 class="form-control"
+                 placeholder="End Date">
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+          <label>Session Type</label>
+          <br>
+          <label class="mr-3 mt-2"><input required style="transform: scale(1.5,1.5);" type="radio" name="sessionType" value="yearly" [(ngModel)]="data['sessionType']"> &nbsp; Yearly</label>
+          <label class="mr-3 mt-2"><input required style="transform: scale(1.5,1.5);" type="radio" name="sessionType" value="semester" [(ngModel)]="data['sessionType']"> &nbsp; Semester</label>
+        </div>
+      </div>
+
+
+      <!--Button-->
+      <div class="col-12 text-right">
+        <button (click)="onSessionSubmitFormClick(sessionForm)"
+                [disabled]="sessionForm.invalid"
+                type="button"
+                class="btn btn-primary">Save</button>
+        <p class="text-danger mt-3">Provide valid & required<span>*</span> information</p>
+      </div>
+
+    </form>
+    <div class="row">
+
+      <ag-grid-angular
+        style="height: 300px;"
+        enableSorting="true"
+        class="ag-theme-balham col-12"
+        (gridReady)="onAgGridReady($event)"
+        [rowData]="rowData"
+        [columnDefs]="columnDefs"
+      >
+      </ag-grid-angular>
+
+      <!--<div>{{sessionForm.valid}}</div>
+      <pre>{{sessionsList|json}}</pre>-->
+    </div>
+  </nb-card-body>
+</nb-card>
