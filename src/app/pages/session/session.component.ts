@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
+import * as moment from 'moment';
 
 @Component({
   selector: 'ngx-session',
@@ -9,7 +10,9 @@ import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 export class SessionComponent implements OnInit {
 
   showBusyIndicator = true;
-  data = {};
+  data = {
+    sessionType: 'annual',
+  };
   /*
   name="sessionName
   name="startDate
@@ -64,5 +67,13 @@ export class SessionComponent implements OnInit {
         params.api.sizeColumnsToFit();
       });
     });
+  }
+
+  updateSessionEndDate() {
+    if (this.data.sessionType === 'annual') {
+      this.data['endDate'] = moment(this.data['startDate']).add(12, 'M').format('YYYY-MM-DD');
+    } else {
+      this.data['endDate'] = moment(this.data['startDate']).add(6, 'M').format('YYYY-MM-DD');
+    }
   }
 }

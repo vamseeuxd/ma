@@ -27,6 +27,7 @@
         <div class="form-group">
           <label>Start Date <span class="text-danger font-w-bold">*</span></label>
           <input name="startDate"
+                 (change)="updateSessionEndDate()"
                  [(ngModel)]="data['startDate']"
                  required
                  type="date"
@@ -39,6 +40,7 @@
         <div class="form-group">
           <label>End Date <span class="text-danger font-w-bold">*</span></label>
           <input name="endDate"
+                 readonly
                  [(ngModel)]="data['endDate']"
                  required
                  type="date"
@@ -51,8 +53,10 @@
         <div class="form-group">
           <label>Session Type</label>
           <br>
-          <label class="mr-3 mt-2"><input required style="transform: scale(1.5,1.5);" type="radio" name="sessionType" value="yearly" [(ngModel)]="data['sessionType']"> &nbsp; Yearly</label>
-          <label class="mr-3 mt-2"><input required style="transform: scale(1.5,1.5);" type="radio" name="sessionType" value="semester" [(ngModel)]="data['sessionType']"> &nbsp; Semester</label>
+          <label class="mr-3 mt-2">
+            <input required (change)="updateSessionEndDate()" style="transform: scale(1.5,1.5);" type="radio" name="sessionType" value="annual" [(ngModel)]="data['sessionType']"> &nbsp; Annual</label>
+          <label class="mr-3 mt-2">
+            <input required (change)="updateSessionEndDate()" style="transform: scale(1.5,1.5);" type="radio" name="sessionType" value="semester" [(ngModel)]="data['sessionType']"> &nbsp; Semester</label>
         </div>
       </div>
 
