@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {BasicInformationSchemaService} from '../../db-schema/basic-information/basic-information-schema.service';
-import {ContactInformationSchemaService} from '../../db-schema/contact-information/contact-information-schema.service';
-import {GlobalSettingsSchemaService} from "../../db-schema/global-settings/global-settings-schema.service";
+import {Component} from '@angular/core';
+import {ItemsService} from '../../db-schema/sample-schema/items/items.service';
+import {CustomersService} from '../../db-schema/sample-schema/customers/customers.service';
+import {OrdersService} from '../../db-schema/sample-schema/orders/orders.service';
 
 @Component({
   selector: 'ngx-basic-details',
@@ -9,19 +9,14 @@ import {GlobalSettingsSchemaService} from "../../db-schema/global-settings/globa
   styleUrls: ['./basic-details.component.scss'],
 })
 export class BasicDetailsComponent {
+  public selectedOrderCustomer = '';
+  public selectedOrderItem = '';
+
   constructor(
-    basicInformationSchemaService: BasicInformationSchemaService,
-    contactInformationSchemaService: ContactInformationSchemaService,
-    globalSettingsSchemaService: GlobalSettingsSchemaService,
+    public itemService: ItemsService,
+    public customersService: CustomersService,
+    public ordersService: OrdersService,
   ) {
-    basicInformationSchemaService.subscribe(value => {
-      // console.log(value);
-    });
-    contactInformationSchemaService.subscribe(value => {
-      // console.log(value);
-    });
-    globalSettingsSchemaService.subscribe(value => {
-      console.log(value);
-    });
   }
 }
+

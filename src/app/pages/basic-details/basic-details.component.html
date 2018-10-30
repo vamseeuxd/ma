@@ -1,3 +1,4 @@
+<!--
 <nb-card>
   <nb-card-body>
     <nb-tabset>
@@ -16,3 +17,179 @@
     </nb-tabset>
   </nb-card-body>
 </nb-card>
+-->
+
+<div class="container-fluid">
+  <div class="row">
+
+    <!-- **************************** Items **************************** -->
+    <div class="col-12">
+      <nb-card>
+        <nb-card-header>
+          <h4>Items Manager</h4>
+        </nb-card-header>
+        <nb-card-body>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <div class="col-12">
+                <form novalidate>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="form-group">
+                        <label>Add New Item</label>
+                        <input class="form-control" type="text" #newitem value="Item "/>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="btn-group mt-4" style="padding-top: 2px;">
+                        <button class="btn btn-primary mr-2 btn-sm rounded-0" (click)="itemService.addItem(newitem.value); newitem.value = 'Item ';">Add</button>
+                        <button class="btn btn-danger rounded-0" (click)="itemService.deleteEverything()">Delete All</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </li>
+            <li class="list-group-item" *ngFor="let item of (itemService?.items$ | async)">
+              <div class="row">
+                <div class="col-4"><pre class="d-inline-block mb-0">{{item|json}}</pre></div>
+                <div class="col-8">
+                  <form novalidate>
+                    <div class="row">
+                      <div class="col-6 p-0">
+                        <input class="form-control" type="text" #updatetext [value]="item.text"/>
+                      </div>
+                      <div class="col-6 p-0">
+                        <div class="btn-group" style="padding-top: 2px;">
+                          <button class="btn btn-primary btn-sm rounded-0" (click)="itemService.updateItem(item.key, updatetext.value)">Update</button>
+                          <button class="btn btn-danger rounded-0" (click)="itemService.deleteItem(item.key)">Delete</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </nb-card-body>
+      </nb-card>
+    </div>
+
+    <!-- **************************** Customers **************************** -->
+    <div class="col-12">
+      <nb-card>
+        <nb-card-header>
+          <h4>Customer Manager</h4>
+        </nb-card-header>
+        <nb-card-body>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <div class="col-12">
+                <form novalidate>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="form-group">
+                        <label>Add New Customer</label>
+                        <input class="form-control" type="text" #newcustomer value="Item "/>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="btn-group mt-4" style="padding-top: 2px;">
+                        <button class="btn btn-primary mr-2 btn-sm rounded-0" (click)="customersService.addItem(newcustomer.value); newitem.value = 'Item ';">Add</button>
+                        <button class="btn btn-danger rounded-0" (click)="customersService.deleteEverything()">Delete All</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </li>
+            <li class="list-group-item" *ngFor="let item of (customersService?.customers$ | async)">
+              <div class="row">
+                <div class="col-4"><pre class="d-inline-block mb-0">{{item|json}}</pre></div>
+                <div class="col-8">
+                  <form novalidate>
+                    <div class="row">
+                      <div class="col-6 p-0">
+                        <input class="form-control" type="text" #updatetext [value]="item.text"/>
+                      </div>
+                      <div class="col-6 p-0">
+                        <div class="btn-group" style="padding-top: 2px;">
+                          <button class="btn btn-primary btn-sm rounded-0" (click)="customersService.updateItem(item.key, updatetext.value)">Update</button>
+                          <button class="btn btn-danger rounded-0" (click)="customersService.deleteItem(item.key)">Delete</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </nb-card-body>
+      </nb-card>
+    </div>
+
+    <!-- **************************** Orders **************************** -->
+    <div class="col-12">
+      <nb-card>
+        <nb-card-header>
+          <h4>Order Manager</h4>
+        </nb-card-header>
+        <nb-card-body>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <div class="col-12">
+                <form novalidate>
+                  <div class="form-row">
+
+                    <div class="form-group col-6">
+                      <label>Select Customer {{selectedOrderCustomer}}</label>
+                      <select class="form-control" [(ngModel)]="selectedOrderCustomer" name="selectedOrderCustomer">
+                        <option selected>Choose...</option>
+                        <option [value]="item.key" *ngFor="let item of (ordersService?.customers | async)">{{item.text}}</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-6">
+                      <label>Select Item {{selectedOrderItem}}</label>
+                      <select class="form-control" [(ngModel)]="selectedOrderItem" name="selectedOrderItem">
+                        <option selected>Choose...</option>
+                        <option [value]="item.key" *ngFor="let item of (ordersService?.items | async)">{{item.text}}</option>
+                      </select>
+                    </div>
+
+                    <div class="col-12">
+                      <div class="btn-group mt-4" style="padding-top: 2px;">
+                        <button class="btn btn-primary mr-2 btn-sm rounded-0" (click)="ordersService.addItem(selectedOrderCustomer,selectedOrderItem); newitem.value = 'Item ';">Add</button>
+                        <button class="btn btn-danger rounded-0" (click)="ordersService.deleteEverything()">Delete All</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </form>
+              </div>
+            </li>
+            <li class="list-group-item" *ngFor="let item of (ordersService?.orders$ | async)">
+              <div class="row">
+                <div class="col-4"><pre class="d-inline-block mb-0">{{item|json}}</pre></div>
+                <div class="col-8">
+                  <form novalidate>
+                    <div class="row">
+                      <div class="col-6 p-0">
+                        <!--<input class="form-control" type="text" #updatetext [value]="item.text"/>-->
+                      </div>
+                      <div class="col-6 p-0">
+                        <div class="btn-group" style="padding-top: 2px;">
+                          <button class="btn btn-danger rounded-0" (click)="ordersService.deleteItem(item.key)">Delete</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+</div>
