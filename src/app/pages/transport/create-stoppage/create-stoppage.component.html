@@ -1,0 +1,30 @@
+<nb-card>
+  <nb-card-header>Transport / Create Stoppage</nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <nb-card>
+          <nb-card-header>Add Stoppage</nb-card-header>
+          <nb-card-body>
+            <form #transportCreateStoppageForm="ngForm">
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label>Type Stop Name <span class="text-danger font-w-bold">*</span></label>
+                  <input name="stopName" [(ngModel)]="data.transportAddVehicleForm['stopName']" required type="text" class="form-control"
+                         placeholder="Stop Name">
+                </div>
+              </div>
+            </form>
+          </nb-card-body>
+        </nb-card>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <nb-card>
+          <nb-card-header>Listing All Stoppage</nb-card-header>
+          <nb-card-body>
+          </nb-card-body>
+        </nb-card>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

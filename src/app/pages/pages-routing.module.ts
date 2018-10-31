@@ -4,6 +4,7 @@ import {PagesComponent} from './pages.component';
 import {BasicDetailsComponent} from './basic-details/basic-details.component';
 import {TransportMasterEntryComponent} from './transport/transport-master-entry/transport-master-entry.component';
 import {VehicleComponent} from './transport/vehicle/vehicle.component';
+import {CreateStoppageComponent} from './transport/create-stoppage/create-stoppage.component';
 
 const routes: Routes = [{
   path: '',
@@ -24,6 +25,10 @@ const routes: Routes = [{
     {
       path: 'transport-vehicle',
       component: VehicleComponent,
+    },
+    {
+      path: 'transport-create-stoppage',
+      component: CreateStoppageComponent,
     },
     {
       path: '',

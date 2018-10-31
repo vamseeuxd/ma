@@ -16,6 +16,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { TransportMasterEntryComponent } from './transport/transport-master-entry/transport-master-entry.component';
 import { AgGridModule } from 'ag-grid-angular';
 import {VehicleComponent} from './transport/vehicle/vehicle.component';
+import { CreateStoppageComponent } from './transport/create-stoppage/create-stoppage.component';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -42,6 +43,7 @@ const PAGES_COMPONENTS = [
     GlobalSettingsComponent,
     TransportMasterEntryComponent,
     VehicleComponent,
+    CreateStoppageComponent,
   ],
 })
 export class PagesModule {
