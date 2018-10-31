@@ -3,7 +3,7 @@
   <nb-card-body>
     <div class="row">
       <div class="col-xs-12 col-sm-6">
-
+        <nb-card class="add-route-container">
           <nb-card-header>Add Route To</nb-card-header>
           <nb-card-body>
             <form #transportMasterEntryForm="ngForm" class="col-12">
@@ -19,7 +19,7 @@
                 <div class="form-group">
                   <label>Status</label>
                   <br>
-                  <label class="mr-3 mt-3"><input style="transform: scale(1.5,1.5);" type="checkbox" name="status" value="disabled" [(ngModel)]="data['status']"> &nbsp;Active</label>
+                  <label class="mr-3 mt-3"><input style="transform: scale(1.5,1.5);" type="checkbox" name="isActive" value="disabled" [(ngModel)]="data['isActive']"> &nbsp;Active</label>
                 </div>
               </div>
               <div class="col-12 text-right">
@@ -33,13 +33,15 @@
             </form>
 
           </nb-card-body>
+          </nb-card>
 
       </div>
 
       <div class="col-xs-12 col-sm-6">
+        <nb-card>
 
-          <nb-card-header>Listing ALL Route To</nb-card-header>
-          <nb-card-body>
+        <nb-card-header>Listing ALL Route To</nb-card-header>
+          <nb-card-body class="p-0">
             <ag-grid-angular
               style="height: 300px;"
               enableSorting="true"
@@ -50,7 +52,7 @@
               [paginationPageSize]= 7
               editable=" true "
               floatingFilter = "true"
-              class="ag-theme-balham col-12"
+              class="ag-theme-balham col-12 p-0"
               [rowData]="rowData"
               [columnDefs]="columnDefs"
               (cellValueChanged)="onCellValueChanged($event)"
@@ -59,6 +61,8 @@
             </ag-grid-angular>
 
           </nb-card-body>
+          </nb-card>
+
       </div>
     </div>
 

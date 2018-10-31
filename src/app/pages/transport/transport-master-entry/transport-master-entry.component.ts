@@ -10,11 +10,11 @@ import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 export class TransportMasterEntryComponent implements OnInit {
   data = {};
   columnDefs = [
-    {headerName: 'Route To', field: 'routeTo', width: 245,
+    {headerName: 'Route To', field: 'routeTo', width: 300,
       filter: 'agTextColumnFilter', floatingFilterComponentParams: {
         debounceMs: 500,
       }},
-    {headerName: 'Status', field: 'status', width: 230, filter: 'agTextColumnFilter', suppressFilter: true, suppressMenu: true, editable: true},
+    {headerName: 'Status', field: 'isActive', width: 200, suppressFilter: true, suppressMenu: true, editable: true},
   ];
 
   rowData = [ ];
@@ -33,13 +33,13 @@ export class TransportMasterEntryComponent implements OnInit {
   ngOnInit() {
   }
   onTransportMasterEntryFormClick(transportMasterEntryForm) {
-    if (this.data['status']) {
-      this.data['status'] = 'Actvie';
+    if (this.data['isActive']) {
+      this.data['isActive'] = 'Actvie';
     } else {
-      this.data['status'] = 'In-Active';
+      this.data['isActive'] = 'In-Active';
     }
     this.transportMasterEntryTable.push(this.data).then(result => {
-      // this.data = {};
+      this.data = {};
     });
   }
 
