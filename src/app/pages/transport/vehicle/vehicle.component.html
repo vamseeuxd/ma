@@ -1,0 +1,259 @@
+<nb-card>
+  <nb-card-header>Transport / Vehicle</nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <nb-card>
+          <nb-card-header>Add Vehicle</nb-card-header>
+          <nb-card-body>
+            <form #transportAddVehicleForm="ngForm">
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label>Vehicle Name <span class="text-danger font-w-bold">*</span></label>
+                  <input name="vehicleName" [(ngModel)]="data.transportAddVehicleForm['vehicleName']" required type="text" class="form-control"
+                         placeholder="Vehicle Name">
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label>Vehicle Number <span class="text-danger font-w-bold">*</span></label>
+                  <input name="vehicleNumber" [(ngModel)]="data.transportAddVehicleForm['vehicleNumber']" required type="text" class="form-control"
+                         placeholder="Vehicle Number">
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label>Vehicle Device ID <span class="text-danger font-w-bold">*</span></label>
+                  <input name="vehicleDeviceID" [(ngModel)]="data.transportAddVehicleForm['vehicleDeviceID']" required type="text" class="form-control"
+                         placeholder="Vehicle Device ID">
+                </div>
+              </div>
+              <div class="col-12 text-right">
+                <button
+                  (click)="onResetDataClick('transportAddVehicleForm')"
+                  type="button"
+                  class="btn btn-primary mr-3">Reset
+                </button>
+                <button
+                  (click)="onTransportAddVehicleFormClick(transportAddVehicleForm)"
+                  [disabled]="transportAddVehicleForm.invalid"
+                        type="button"
+                        class="btn btn-primary">Save
+                </button>
+                <p class="text-danger mt-3">Provide valid & required<span>*</span> information</p>
+              </div>
+            </form>
+          </nb-card-body>
+        </nb-card>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <nb-card>
+          <nb-card-header>Listing All Vehicles</nb-card-header>
+          <nb-card-body class="p-0">
+            <ag-grid-angular #agGrid style="width: 100%; height: 200px;"
+                             class="ag-theme-balham p-0"
+                             [rowData]="listingVehicle.rowData"
+                             [columnDefs]="listingVehicle.columnDefs">
+            </ag-grid-angular>
+          </nb-card-body>
+        </nb-card>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <nb-card>
+          <nb-card-header>Add Fuel</nb-card-header>
+          <nb-card-body>
+            <pre>{{ listingVehicle.rowData | json}}</pre>
+
+            <form #transportAddFuelForm="ngForm">
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label>Vehicle Number <span class="text-danger font-w-bold">*</span></label>
+                  <select name="vehicleNumber" [(ngModel)]="data.transportAddFuelForm['vehicleNumber']" class="form-control" placeholder="Vehicle Name">
+                    <option *ngFor="let option of vehicleNumber" [value]="option.vehicleNumber" [innerHTML]="option.display"></option>
+                  </select>
+                  <!--<select name="vehicleName" [(ngModel)]="data['vehicleName']" class="form-control" placeholder="Vehicle Name Icon">
+                    <option >Comming soon</option>
+                  </select>-->
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label>Quantity <span class="text-danger font-w-bold">*</span></label>
+                  <input name="fuelQuantity" [(ngModel)]="data.transportAddFuelForm['fuelQuantity']" required type="text" class="form-control"
+                         placeholder="Quantity">
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label>Rate per Litre <span class="text-danger font-w-bold">*</span></label>
+                  <input name="rateperLitre" [(ngModel)]="data.transportAddFuelForm['rateperLitre']" required type="text" class="form-control"
+                         placeholder="Rate per Litre">
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label>Date <span class="text-danger font-w-bold">*</span></label>
+                  <input name="fuelDate" [(ngModel)]="data.transportAddFuelForm['fuelDate']" required type="date" class="form-control"
+                         >
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label>Reciept No <span class="text-danger font-w-bold">*</span></label>
+                  <input name="fuelRecieptNo" [(ngModel)]="data.transportAddFuelForm['fuelRecieptNo']" required type="text" class="form-control"
+                         placeholder="Reciept No">
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label>Remarks </label>
+                  <input name="fuelRemarks" [(ngModel)]="data.transportAddFuelForm['fuelRemarks']" type="text" class="form-control"
+                         placeholder="Remarks">
+                </div>
+              </div>
+              <div class="col-12 text-right">
+                <button
+                  (click)="onResetDataClick(transportAddFuelForm)"
+                  type="button"
+                  class="btn btn-primary mr-3">Reset
+                </button>
+                <button
+                  (click)="onTransportAddFuelFormClick(transportAddFuelForm)"
+                  [disabled]="transportAddFuelForm.invalid"
+                  type="button"
+                  class="btn btn-primary">Save
+                </button>
+                <p class="text-danger mt-3">Provide valid & required<span>*</span> information</p>
+              </div>
+            </form>
+          </nb-card-body>
+        </nb-card>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <nb-card>
+          <nb-card-header>Detailed Fuel Details / Vehicle </nb-card-header>
+          <nb-card-body class="p-0">
+            <div class="row m-1">
+            <div class="col-xs-4 col-sm-4">
+              <div class="form-group">
+                <label>From Date </label>
+                <input name="fuelFromDate" [(ngModel)]="data['fuelFromDate']" type="date" class="form-control">
+              </div>
+            </div>
+            <div class="col-xs-4 col-sm-4">
+              <div class="form-group">
+                <label>To Date </label>
+                <input name="fuelToDate" [(ngModel)]="data['fuelToDate']" type="date" class="form-control" >
+              </div>
+            </div>
+            <div class="col-xs-4 col-sm-4">
+              <div class="form-group">
+                <label>Vehicle Number</label>
+                <select name="vehicleNumber" [(ngModel)]="data['vehicleNumber']" class="form-control" placeholder="Vehicle Name Icon">
+                  <option >Comming soon</option>
+                </select>
+              </div>
+            </div>
+            </div>
+            <ag-grid-angular #agGrid style="width: 100%; height: 200px;" class="ag-theme-balham p-0"
+                             [gridOptions]="listingFuelDetails">
+            </ag-grid-angular>
+          </nb-card-body>
+        </nb-card>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <nb-card>
+          <nb-card-header>Add Reading</nb-card-header>
+          <nb-card-body>
+            <form #transportAddReadingForm="ngForm">
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label>Vehicle Name <span class="text-danger font-w-bold">*</span></label>
+                  <select name="vehicleName" [(ngModel)]="data['vehicleName']" class="form-control" placeholder="Vehicle Name Icon">
+                    <option >Comming soon</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label>Reading <span class="text-danger font-w-bold">*</span></label>
+                  <input name="vehicleReading" [(ngModel)]="data['vehicleReading']" required type="text" class="form-control"
+                         placeholder="Reading">
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label>Date <span class="text-danger font-w-bold">*</span></label>
+                  <input name="readingDate" [(ngModel)]="data['readingDate']" required type="date" class="form-control"
+                  >
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label>Remarks </label>
+                  <input name="remarks" [(ngModel)]="data['remarks']" type="text" class="form-control"
+                         placeholder="Remarks">
+                </div>
+              </div>
+              <div class="col-12 text-right">
+                <button
+                  (click)="onResetDataClick(transportAddReadingForm)"
+                  type="button"
+                  class="btn btn-primary mr-3">Reset
+                </button>
+                <button
+                  (click)="onTransportAddReadingFormClick(transportAddReadingForm)"
+                  [disabled]="transportAddReadingForm.invalid"
+                  type="button"
+                  class="btn btn-primary">Save
+                </button>
+                <p class="text-danger mt-3">Provide valid & required<span>*</span> information</p>
+              </div>
+            </form>
+          </nb-card-body>
+        </nb-card>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <nb-card>
+          <nb-card-header>Detailed Reading Details / Vehicle</nb-card-header>
+          <nb-card-body class="p-0">
+            <div class="row m-1">
+              <div class="col-xs-4 col-sm-4">
+                <div class="form-group">
+                  <label>From Date </label>
+                  <input name="readingFromDate" [(ngModel)]="data['readingFromDate']" type="date" class="form-control"
+                  >
+                </div>
+              </div>
+              <div class="col-xs-4 col-sm-4">
+                <div class="form-group">
+                  <label>To Date </label>
+                  <input name="readingToDate" [(ngModel)]="data['readingToDate']" required type="date" class="form-control"
+                  >
+                </div>
+              </div>
+              <div class="col-xs-4 col-sm-4">
+                <div class="form-group">
+                  <label>Vehicle Number</label>
+                  <select name="vehicleNumber" [(ngModel)]="data['vehicleNumber']" class="form-control" placeholder="Vehicle Name Icon">
+                    <option >Comming soon</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <ag-grid-angular #agGrid style="width: 100%; height: 200px;" class="ag-theme-balham p-0"
+                             [gridOptions]="listingReadingDetails">
+            </ag-grid-angular>
+          </nb-card-body>
+        </nb-card>
+      </div>
+    </div>
+
+  </nb-card-body>
+</nb-card>

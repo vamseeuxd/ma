@@ -154,6 +154,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
           },
           {
             'title': 'Vehicle',
+            'link': 'transport-vehicle',
           },
           {
             'title': 'Create Stoppage',

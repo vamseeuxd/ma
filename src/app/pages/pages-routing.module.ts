@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {PagesComponent} from './pages.component';
 import {BasicDetailsComponent} from './basic-details/basic-details.component';
 import {TransportMasterEntryComponent} from './transport/transport-master-entry/transport-master-entry.component';
+import {VehicleComponent} from './transport/vehicle/vehicle.component';
 
 const routes: Routes = [{
   path: '',
@@ -19,6 +20,10 @@ const routes: Routes = [{
     {
       path: 'transport-master-entry',
       component: TransportMasterEntryComponent,
+    },
+    {
+      path: 'transport-vehicle',
+      component: VehicleComponent,
     },
     {
       path: '',

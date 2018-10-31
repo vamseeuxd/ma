@@ -15,6 +15,7 @@ import {ImageCropperModule} from 'ngx-image-cropper';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { TransportMasterEntryComponent } from './transport/transport-master-entry/transport-master-entry.component';
 import { AgGridModule } from 'ag-grid-angular';
+import {VehicleComponent} from './transport/vehicle/vehicle.component';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -40,6 +41,7 @@ const PAGES_COMPONENTS = [
     ContactInformationComponent,
     GlobalSettingsComponent,
     TransportMasterEntryComponent,
+    VehicleComponent,
   ],
 })
 export class PagesModule {
