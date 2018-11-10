@@ -1,7 +1,5 @@
 import {Component} from '@angular/core';
-import {ItemsService} from '../../db-schema/sample-schema/items/items.service';
-import {CustomersService} from '../../db-schema/sample-schema/customers/customers.service';
-import {OrdersService} from '../../db-schema/sample-schema/orders/orders.service';
+import {SampleSchema} from '../../db-schema/sample-schema/sample-schema';
 
 @Component({
   selector: 'ngx-basic-details',
@@ -12,11 +10,7 @@ export class BasicDetailsComponent {
   public selectedOrderCustomer = '';
   public selectedOrderItem = '';
 
-  constructor(
-    public itemService: ItemsService,
-    public customersService: CustomersService,
-    public ordersService: OrdersService,
-  ) {
+  constructor(sampleSchema: SampleSchema) {
   }
 }
 
