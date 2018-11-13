@@ -8,7 +8,7 @@ describe('GlobalSettingsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GlobalSettingsComponent ]
+      declarations: [ GlobalSettingsComponent ],
     })
     .compileComponents();
   }));

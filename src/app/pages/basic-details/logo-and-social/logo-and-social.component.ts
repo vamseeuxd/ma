@@ -1,8 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
-import {AngularFireStorage, AngularFireUploadTask} from '@angular/fire/storage';
-import {AngularFirestore} from '@angular/fire/firestore';
-import {finalize} from 'rxjs/operators';
+import {AngularFireStorage} from '@angular/fire/storage';
 import {AngularFireDatabase, AngularFireObject} from '@angular/fire/database';
 import {ModalDismissReasons, NgbModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
 

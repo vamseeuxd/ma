@@ -18,6 +18,9 @@ import { AgGridModule } from 'ag-grid-angular';
 import {VehicleComponent} from './transport/vehicle/vehicle.component';
 import { CreateStoppageComponent } from './transport/create-stoppage/create-stoppage.component';
 
+import { AgmCoreModule } from '@agm/core';
+import { AgmDirectionModule } from 'agm-direction';  // agm-direction
+
 const PAGES_COMPONENTS = [
   PagesComponent,
   BasicDetailsComponent,
@@ -34,6 +37,11 @@ const PAGES_COMPONENTS = [
     NgbModule,
     NbTabsetModule,
     AgGridModule.withComponents([]),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyA9CbR0_S2dmvdlhC_veRTjfXtZ6qQC7jM',
+      libraries: ['places'],
+    }),
+    AgmDirectionModule,     // agm-direction
   ],
   declarations: [
     ...PAGES_COMPONENTS,

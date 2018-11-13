@@ -8,7 +8,7 @@ describe('LogoAndSocialComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LogoAndSocialComponent ]
+      declarations: [ LogoAndSocialComponent ],
     })
     .compileComponents();
   }));

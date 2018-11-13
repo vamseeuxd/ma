@@ -8,7 +8,7 @@ describe('CreateStoppageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreateStoppageComponent ]
+      declarations: [ CreateStoppageComponent ],
     })
     .compileComponents();
   }));

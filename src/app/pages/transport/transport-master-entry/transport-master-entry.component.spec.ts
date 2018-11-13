@@ -8,7 +8,7 @@ describe('TransportMasterEntryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TransportMasterEntryComponent ]
+      declarations: [ TransportMasterEntryComponent ],
     })
     .compileComponents();
   }));

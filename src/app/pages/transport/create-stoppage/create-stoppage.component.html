@@ -10,9 +10,22 @@
               <div class="col-xs-12">
                 <div class="form-group">
                   <label>Type Stop Name <span class="text-danger font-w-bold">*</span></label>
-                  <input name="stopName" [(ngModel)]="data.transportAddVehicleForm['stopName']" required type="text" class="form-control"
+                  <input name="stopName" [(ngModel)]="data['stopName']" required type="text" class="form-control"
                          placeholder="Stop Name">
                 </div>
+              </div>
+              <div class= "dol-xs-12">
+                <agm-map [latitude]= "lat" [longitude]= "lng" (mapClick)="mapClicked($event)">
+                    <agm-direction *ngFor="let point of directionPoints;"
+                      [origin]="point['origin']"
+                      [destination]="point['destination']"
+                      [renderOptions]="renderOptions"
+                                   [markerOptions]="markerOptions"
+
+                      (onChange)="change($event)" >
+                    </agm-direction>
+
+                </agm-map>
               </div>
             </form>
           </nb-card-body>
@@ -22,6 +35,7 @@
         <nb-card>
           <nb-card-header>Listing All Stoppage</nb-card-header>
           <nb-card-body>
+
           </nb-card-body>
         </nb-card>
       </div>
