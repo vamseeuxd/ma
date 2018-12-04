@@ -1,37 +1,53 @@
 <nb-card>
   <nb-card-header>Transport / Create Stoppage</nb-card-header>
   <nb-card-body>
+
+
     <div class="row">
-      <div class="col-xs-12 col-sm-6">
+      <div class="col-xs-12 col-sm-12">
         <nb-card>
           <nb-card-header>Add Stoppage</nb-card-header>
           <nb-card-body>
             <form #transportCreateStoppageForm="ngForm">
-              <div class="col-xs-12">
-                <div class="form-group">
-                  <label>Type Stop Name <span class="text-danger font-w-bold">*</span></label>
-                  <input name="stopName" [(ngModel)]="data['stopName']" required type="text" class="form-control"
-                         placeholder="Stop Name">
+
+              <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                  <div class="form-group">
+                    <label>Type Stop Name <span class="text-danger font-w-bold">*</span></label>
+                    <input name="stopName" [(ngModel)]="data['stopName']" required type="text" class="form-control"
+                           placeholder="Stop Name">
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+
+                  <div class=" text-right">
+                    <p class="text-danger mb-2">Provide valid & required<span>*</span> information</p>
+                    <button type="button" class="btn btn-primary mr-3">Reset</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                  </div>
+
                 </div>
               </div>
-              <div class= "dol-xs-12">
-                <agm-map [latitude]= "lat" [longitude]= "lng" (mapClick)="mapClicked($event)">
-                    <agm-direction *ngFor="let point of directionPoints;"
-                      [origin]="point['origin']"
-                      [destination]="point['destination']"
-                      [renderOptions]="renderOptions"
-                                   [markerOptions]="markerOptions"
 
-                      (onChange)="change($event)" >
-                    </agm-direction>
+              <div class="dol-xs-12">
+                <agm-map [zoom]="zoom" [latitude]="lat" [longitude]="lng" (mapClick)="mapClicked($event)">
+                  <agm-direction *ngFor="let point of directionPoints; let i = index"
+                                 [origin]="point['origin']"
+                                 [destination]="point['destination']"
+                                 [waypoints]="waypoints"
+                                 [renderOptions]="renderOptions"
+                                 [markerOptions]="markerOptions"
+                                 [travelMode]="travelMode"
+                                 (onChange)="change($event)">
 
+                  </agm-direction>
                 </agm-map>
               </div>
             </form>
           </nb-card-body>
         </nb-card>
       </div>
-      <div class="col-xs-12 col-sm-6">
+      <div class="col-xs-12 col-sm-12">
         <nb-card>
           <nb-card-header>Listing All Stoppage</nb-card-header>
           <nb-card-body>

@@ -5,6 +5,7 @@
  */
 import {Component, OnInit} from '@angular/core';
 import {AnalyticsService} from './@core/utils/analytics.service';
+import {AngularFirestore} from '@angular/fire/firestore';
 import {AngularFireDatabase} from '@angular/fire/database';
 
 @Component({
