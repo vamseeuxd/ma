@@ -20,6 +20,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
       {
         'title': ' Class & Section',
+        'link': '/pages/class-and-section',
       },
       {
         'title': ' Fees',
