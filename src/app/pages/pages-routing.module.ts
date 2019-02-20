@@ -2,6 +2,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {PagesComponent} from './pages.component';
 import {BasicDetailsComponent} from './basic-details/basic-details.component';
+import {StudentMasterEntryComponent} from './student-master-entry/student-master-entry.component';
 
 const routes: Routes = [{
   path: '',
@@ -16,8 +17,12 @@ const routes: Routes = [{
       component: BasicDetailsComponent,
     },
     {
+      path: 'student-master-entry',
+      component: StudentMasterEntryComponent,
+    },
+    {
       path: '',
-      redirectTo: 'basic-details',
+      redirectTo: 'Student-Master-Entry',
       pathMatch: 'full',
     },
   ],

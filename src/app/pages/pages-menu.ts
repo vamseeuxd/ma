@@ -49,6 +49,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         children: [
           {
             'title': 'Student Master Entry',
+            'link': '/pages/student-master-entry',
           },
           {
             'title': 'Student Admission',
