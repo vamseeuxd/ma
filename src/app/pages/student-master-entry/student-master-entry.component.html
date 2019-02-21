@@ -1,10 +1,19 @@
-<ul>
-  <li *ngFor="let item of items | async">
-    <input type="text" #updatetext [value]="item.value" />
-    <button (click)="updateItem(item.key, updatetext.value)">Update</button>
-    <button (click)="deleteItem(item.key)">Delete</button>
-  </li>
-</ul>
-<input type="text" #newitem />
-<button (click)="addItem(newitem.value)">Add</button>
-<button (click)="deleteEverything()">Delete All</button>
+<nb-card>
+  <nb-card-body>
+    <nb-tabset>
+      <nb-tab tabTitle="Gender">
+        <ngx-gender-manager></ngx-gender-manager>
+      </nb-tab>
+      <nb-tab tabTitle="Category">
+        <ngx-category-manager></ngx-category-manager>
+      </nb-tab>
+      <nb-tab tabTitle="Blood Group">
+        <ngx-blood-group-manager></ngx-blood-group-manager>
+      </nb-tab>
+    </nb-tabset>
+  </nb-card-body>
+</nb-card>
+
+<!--
+BloodGroupManager
+-->

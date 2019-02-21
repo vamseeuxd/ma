@@ -14,6 +14,9 @@ import {NbSpinnerModule, NbTabsetModule} from '@nebular/theme';
 import {ImageCropperModule} from 'ngx-image-cropper';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { StudentMasterEntryComponent } from './student-master-entry/student-master-entry.component';
+import {GenderManagerComponent} from './student-master-entry/gender-manager/gender-manager.component';
+import {CategoryManagerComponent} from './student-master-entry/category-manager/category-manager.component';
+import {BloodGroupManagerComponent} from './student-master-entry/blood-group-manager/blood-group-manager.component';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -38,6 +41,9 @@ const PAGES_COMPONENTS = [
     ContactInformationComponent,
     GlobalSettingsComponent,
     StudentMasterEntryComponent,
+    GenderManagerComponent,
+    CategoryManagerComponent,
+    BloodGroupManagerComponent,
   ],
 })
 export class PagesModule {
