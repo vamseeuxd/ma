@@ -16,7 +16,8 @@
   ],
   "scripts": {
     "ng": "ng",
-    "firebase_deploy": "firebase deploy",
+    "firebase_deploy": "npm run build:prod && firebase deploy",
+    "firebase_deploy2": "firebase deploy",
     "conventional-changelog": "conventional-changelog",
     "start": "ng serve --o",
     "build": "ng build",
