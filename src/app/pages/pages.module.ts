@@ -17,6 +17,9 @@ import { StudentMasterEntryComponent } from './student-master-entry/student-mast
 import {GenderManagerComponent} from './student-master-entry/gender-manager/gender-manager.component';
 import {CategoryManagerComponent} from './student-master-entry/category-manager/category-manager.component';
 import {BloodGroupManagerComponent} from './student-master-entry/blood-group-manager/blood-group-manager.component';
+import {DocumentManagerComponent} from './student-master-entry/document-manager/document-manager.component';
+import {CasteManagerComponent} from './student-master-entry/caste-manager/caste-manager.component';
+import {ReasonManagerComponent} from './student-master-entry/reason-manager/reason-manager.component';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -44,6 +47,9 @@ const PAGES_COMPONENTS = [
     GenderManagerComponent,
     CategoryManagerComponent,
     BloodGroupManagerComponent,
+    DocumentManagerComponent,
+    CasteManagerComponent,
+    ReasonManagerComponent,
   ],
 })
 export class PagesModule {
