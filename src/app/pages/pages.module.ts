@@ -10,16 +10,12 @@ import {LogoAndSocialComponent} from './basic-details/logo-and-social/logo-and-s
 import {ContactInformationComponent} from './basic-details/contact-information/contact-information.component';
 import {NgxMaskModule} from 'ngx-mask';
 import {GlobalSettingsComponent} from './basic-details/global-settings/global-settings.component';
-import {NbSpinnerModule, NbTabsetModule} from '@nebular/theme';
+import {NbListModule, NbSpinnerModule, NbTabsetModule} from '@nebular/theme';
 import {ImageCropperModule} from 'ngx-image-cropper';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { StudentMasterEntryComponent } from './student-master-entry/student-master-entry.component';
-import {GenderManagerComponent} from './student-master-entry/gender-manager/gender-manager.component';
-import {CategoryManagerComponent} from './student-master-entry/category-manager/category-manager.component';
-import {BloodGroupManagerComponent} from './student-master-entry/blood-group-manager/blood-group-manager.component';
-import {DocumentManagerComponent} from './student-master-entry/document-manager/document-manager.component';
-import {CasteManagerComponent} from './student-master-entry/caste-manager/caste-manager.component';
-import {ReasonManagerComponent} from './student-master-entry/reason-manager/reason-manager.component';
+import {StudentMasterEntryComponent} from './student-master-entry/student-master-entry.component';
+import {ToasterModule} from 'angular2-toaster';
+import {FirebaseSingleListComponent} from './student-master-entry/firebase-single-list/firebase-single-list.component';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
@@ -36,6 +32,8 @@ const PAGES_COMPONENTS = [
     ImageCropperModule,
     NgbModule,
     NbTabsetModule,
+    NbListModule,
+    ToasterModule.forRoot(),
   ],
   declarations: [
     ...PAGES_COMPONENTS,
@@ -44,12 +42,7 @@ const PAGES_COMPONENTS = [
     ContactInformationComponent,
     GlobalSettingsComponent,
     StudentMasterEntryComponent,
-    GenderManagerComponent,
-    CategoryManagerComponent,
-    BloodGroupManagerComponent,
-    DocumentManagerComponent,
-    CasteManagerComponent,
-    ReasonManagerComponent,
+    FirebaseSingleListComponent,
   ],
 })
 export class PagesModule {

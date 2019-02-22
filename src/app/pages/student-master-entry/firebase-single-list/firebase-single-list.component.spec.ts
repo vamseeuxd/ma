@@ -1,20 +1,20 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {BloodGroupManagerComponent} from './blood-group-manager.component';
+import {FirebaseSingleListComponent} from './firebase-single-list.component';
 
-describe('BloodGroupManagerComponent', () => {
-  let component: BloodGroupManagerComponent;
-  let fixture: ComponentFixture<BloodGroupManagerComponent>;
+describe('FirebaseSingleListComponent', () => {
+  let component: FirebaseSingleListComponent;
+  let fixture: ComponentFixture<FirebaseSingleListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [BloodGroupManagerComponent]
+      declarations: [FirebaseSingleListComponent]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BloodGroupManagerComponent);
+    fixture = TestBed.createComponent(FirebaseSingleListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

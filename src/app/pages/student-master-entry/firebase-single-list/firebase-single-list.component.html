@@ -1,0 +1,53 @@
+<div class="col-sm-12 col-xs-12 col-md-12 col-lg-12 col-xl-8 offset-xl-2">
+  <nb-card class="mt-5">
+    <nb-card-header class="pb-0">
+      <div class="input-group">
+        <input #newGenderName (keyup.enter)="addItem(newGenderName)"
+               [placeholder]="'Provide valid '+itemName+' & Press Enter'" class="form-control"
+               typ="text">
+        <div class="input-group-append">
+          <button (click)="addItem(newGenderName)" class="btn btn-primary">Add</button>
+        </div>
+      </div>
+      <p class="m-0 p-0 text-primary mt-2 mb-2" style="font-size: 12px;">
+        Provide valid {{itemName}} & "Press Enter" / "Click Add Button"
+      </p>
+    </nb-card-header>
+    <nb-card-body style="overflow-y: auto;max-height: calc(100vh - 432px);">
+      <nb-list>
+        <nb-list-item *ngFor="let item of items | async" style="position: relative;">
+          <label *ngIf="itemForUpdate!=item.key">{{ item.value }}</label>
+          <div *ngIf="itemForUpdate==item.key" class="input-group">
+            <input #updateGenderName
+                   (keyup.enter)="updateItem(item.key, updateGenderName)"
+                   (keyup.esc)="itemForUpdate=''"
+                   [defaultValue]="item.value"
+                   autofocus class="form-control"
+                   placeholder="Provide valid {{itemName}} & Press Enter"
+                   type="text">
+            <div class="input-group-append">
+              <button (click)="updateItem(item.key, updateGenderName)" class="btn btn-primary" style="cursor: pointer">
+                <i class="fa fa-save"></i>
+              </button>
+              <button (click)="itemForUpdate=''" class="btn btn-danger" style="cursor: pointer">
+                <i class="fa fa-times"></i>
+              </button>
+            </div>
+          </div>
+          <div *ngIf="itemForUpdate!=item.key" style="position: absolute;right: 10px;top: 10px;display: inline-block">
+            <button (click)="itemForUpdate=item.key"
+                    class="btn btn-warning btn-sm p-2 rounded-0 mr-2"
+                    style="cursor: pointer">
+              <i class="fa fa-edit"></i>
+            </button>
+            <button (click)="deleteItem(item.key)"
+                    class="btn btn-danger btn-sm p-2 rounded-0"
+                    style="cursor: pointer">
+              <i class="fa fa-trash"></i>
+            </button>
+          </div>
+        </nb-list-item>
+      </nb-list>
+    </nb-card-body>
+  </nb-card>
+</div>
