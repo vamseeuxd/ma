@@ -40,9 +40,10 @@
       <!--Section-->
       <div class="col-xs-6 col-sm-3">
         <div class="form-group">
-          <label>Class <span class="text-danger font-w-bold">*</span></label>
-          <select name="section" [(ngModel)]="data['section']" [disabled]="data['class'] !== ''"  class="form-control" placeholder="Class">
-            <option *ngFor="let option of optionsSection" [disabled]="data['class'] !== ''" [value]="option.id" [innerHTML]="option.label"></option>
+          <label>Sections <span class="text-danger font-w-bold">*</span></label>
+          <select name="section" [(ngModel)]="data['section']" class="form-control" placeholder="Class">
+            <option *ngFor="let option of (optionsSection|async)" [value]="option.key"
+                    [innerHTML]="option.sessionName"></option>
           </select>
         </div>
       </div>
