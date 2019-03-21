@@ -23,6 +23,16 @@
   </nb-card-header>
   <nb-card-body>
     <form class="row" #sessionForm="ngForm">
+      <div class="col-xs-12 col-sm-12">
+        <div class="form-group">
+          <label>Session Type</label>
+          <br>
+          <label class="mr-3 mt-2">
+            <input required (change)="updateSessionEndDate()" style="transform: scale(1.5,1.5);" type="radio" name="sessionType" value="annual" [(ngModel)]="data['sessionType']"> &nbsp; Annual</label>
+          <label class="mr-3 mt-2">
+            <input required (change)="updateSessionEndDate()" style="transform: scale(1.5,1.5);" type="radio" name="sessionType" value="semester" [(ngModel)]="data['sessionType']"> &nbsp; Semester</label>
+        </div>
+      </div>
 
       <div class="col-xs-12 col-sm-6">
         <div class="form-group">
@@ -35,6 +45,7 @@
                  placeholder="Session Name">
         </div>
       </div>
+
 
       <div class="col-xs-12 col-sm-6">
         <div class="form-group">
@@ -62,16 +73,7 @@
         </div>
       </div>
 
-      <div class="col-xs-12 col-sm-6">
-        <div class="form-group">
-          <label>Session Type</label>
-          <br>
-          <label class="mr-3 mt-2">
-            <input required (change)="updateSessionEndDate()" style="transform: scale(1.5,1.5);" type="radio" name="sessionType" value="annual" [(ngModel)]="data['sessionType']"> &nbsp; Annual</label>
-          <label class="mr-3 mt-2">
-            <input required (change)="updateSessionEndDate()" style="transform: scale(1.5,1.5);" type="radio" name="sessionType" value="semester" [(ngModel)]="data['sessionType']"> &nbsp; Semester</label>
-        </div>
-      </div>
+
 
 
       <!--Button-->
