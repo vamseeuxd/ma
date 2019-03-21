@@ -13,7 +13,7 @@
         <div class="form-group">
           <label>Season <span class="text-danger font-w-bold">*</span></label>
           <select name="season" [(ngModel)]="data['season']"  class="form-control" placeholder="Currency Icon">
-            <option *ngFor="let option of optionsSeason" [value]="option.id" [innerHTML]="option.label"></option>
+            <option *ngFor="let option of (optionsSection|async)" [value]="option.key" [innerHTML]="option.startDate+' - '+option.endDate"></option>
           </select>
         </div>
       </div>
@@ -32,7 +32,7 @@
         <div class="form-group">
           <label>Class <span class="text-danger font-w-bold">*</span></label>
           <select name="class" [(ngModel)]="data['class']"  class="form-control" placeholder="Class">
-            <option *ngFor="let option of optionsClass" [value]="option.id" [innerHTML]="option.label"></option>
+            <option *ngFor="let option of (optionsSection|async)" [value]="option.key" [innerHTML]="option.sessionName"></option>
           </select>
         </div>
       </div>
@@ -43,7 +43,7 @@
           <label>Sections <span class="text-danger font-w-bold">*</span></label>
           <select name="section" [(ngModel)]="data['section']" class="form-control" placeholder="Class">
             <option *ngFor="let option of (optionsSection|async)" [value]="option.key"
-                    [innerHTML]="option.sessionName"></option>
+                    [innerHTML]="option.sessionType"></option>
           </select>
         </div>
       </div>
