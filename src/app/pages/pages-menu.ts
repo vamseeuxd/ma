@@ -52,6 +52,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
           },
           {
             'title': 'Student Admission',
+            'link': '/pages/student-admission',
           },
           {
             'title': 'View Students',
