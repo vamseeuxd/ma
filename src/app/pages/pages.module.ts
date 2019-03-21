@@ -10,7 +10,7 @@ import {LogoAndSocialComponent} from './basic-details/logo-and-social/logo-and-s
 import {ContactInformationComponent} from './basic-details/contact-information/contact-information.component';
 import {NgxMaskModule} from 'ngx-mask';
 import {GlobalSettingsComponent} from './basic-details/global-settings/global-settings.component';
-import {NbSpinnerModule, NbTabsetModule} from '@nebular/theme';
+import {NbAlertModule, NbSpinnerModule, NbTabsetModule} from '@nebular/theme';
 import {ImageCropperModule} from 'ngx-image-cropper';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {SessionComponent} from './session/session.component';
@@ -31,6 +31,7 @@ const PAGES_COMPONENTS = [
     ImageCropperModule,
     NgbModule,
     NbTabsetModule,
+    NbAlertModule,
     AgGridModule.withComponents([]),
   ],
   declarations: [
